@@ -11,7 +11,7 @@ export const config = {
 
   isDev: process.env.NODE_ENV === "development",
   isProd: process.env.NODE_ENV === "production",
-  isTest: process.env.NODE_ENV === "testing",
+  isTest: process.env.NODE_ENV === "test",
 
   paths: {
     views: path.join(root, "src", "views"),
