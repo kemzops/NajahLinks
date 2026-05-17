@@ -178,4 +178,5 @@ http://localhost:3000
 - [Pico.css](https://picocss.com/) for lightweight UI styling and rapid prototyping  
 - [Express.js](https://expressjs.com/) for the backend framework  
 - [ETA](https://github.com/bgub/eta/) for server-side templating  
+- [Bootstrap Icons](https://icons.getbootstrap.com/) ICONS  
 - AND Open-source community for the libraries used in this project
