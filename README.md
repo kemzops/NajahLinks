@@ -1,5 +1,8 @@
 # NajahLinks
+
 ![Bundle Screenshot](https://raw.githubusercontent.com/kemzops/NajahLinks/main/screenshots/bundle.png)
+
+![Dashboard Screenshot](https://raw.githubusercontent.com/kemzops/NajahLinks/main/screenshots/dashboard.png)
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
