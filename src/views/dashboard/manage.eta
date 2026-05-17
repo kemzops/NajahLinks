@@ -73,17 +73,17 @@
         <tr>
           <td><strong><%= index + 1 %></strong></td>
           <td>
-            <form method="POST" action="/api/bundles/<%= it.bundle.slug %>/links/update/<%= link.id %>">
-              <input name="title" value="<%= link.title || '' %>" placeholder="Link Title" />
+            <input name="title" value="<%= link.title || '' %>" placeholder="Link Title" form="update-link-<%= link.id %>" />
           </td>
           <td>
-            <input name="url" value="<%= link.url %>" required />
+            <input name="url" value="<%= link.url %>" required form="update-link-<%= link.id %>" />
           </td>
           <td>
             <small><%= link.created_at %></small>
           </td>
           <td>
             <div style="display:flex; gap:.5rem; align-items:center;">
+              <form id="update-link-<%= link.id %>" method="POST" action="/api/bundles/<%= it.bundle.slug %>/links/update/<%= link.id %>">
               <button type="submit" class="contrast">
                 <i class="bi bi-check2"></i>
               </button>
