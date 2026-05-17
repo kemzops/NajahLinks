@@ -1,11 +1,7 @@
 import { findUserByEmail } from "../../../modules/users.db.js";
 import { setAuthCookie } from "../../../utils/cookies.js";
 import { verifyPassword } from "../../../utils/hash.js";
-import {
-  buildStudentEmail,
-  isValidStudentEmail,
-  isValidStudentID,
-} from "../../../utils/helpers.js";
+import { buildStudentEmail, isValidStudentID } from "../../../utils/helpers.js";
 import { generateJWT } from "../../../utils/jwt.js";
 
 export default async (req, res) => {
