@@ -1,0 +1,49 @@
+{
+  "name": "najahlinks",
+  "version": "0.0.1",
+  "description": "Najah Links is a web-based open-source application that allows students of An-Najah National University to create & share pages where multiple URLs can be collected and displayed in one place.",
+  "keywords": [
+    "najahlinks"
+  ],
+  "homepage": "https://github.com/kemzops/NajahLinks#readme",
+  "bugs": {
+    "url": "https://github.com/kemzops/NajahLinks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kemzops/NajahLinks.git"
+  },
+  "license": "MIT",
+  "author": "Aziz Mazouz Jaber (kemzops)",
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+    "prod": "cross-env NODE_ENV=production node src/server.js",
+    "test": "cross-env NODE_ENV=test node --test",
+    "test:watch": "cross-env NODE_ENV=test node --test --watch",
+    "test:coverage": "cross-env NODE_ENV=test node --test --experimental-test-coverage"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2"
+  },
+  "dependencies": {
+    "@tursodatabase/serverless": "^1.1.3",
+    "bcrypt": "^6.0.0",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.2",
+    "eta": "^4.6.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "nodemailer": "^8.0.7"
+  }
+}

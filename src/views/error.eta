@@ -1,0 +1,18 @@
+<% layout("layout/page") %>
+<% if (it.msg) { %>
+<article style="
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-left: 4px solid
+        <%= it.msg_type === 'success' ? '#2ecc71' : '#e74c3c' %>;
+    ">
+  <strong>
+    <% if(it.msg_type === 'success') { %>
+    <i class="bi bi-check-circle"></i>
+    <% } else { %>
+    <i class="bi bi-bug"></i>
+    <% } %>
+  </strong>
+  <span><%= it.msg || "Internal server error" %></span>
+</article>
+<% } %>

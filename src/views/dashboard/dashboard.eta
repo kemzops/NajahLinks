@@ -1,0 +1,81 @@
+<% layout("../layout/page") %>
+<% if (it.msg) { %>
+<article style="
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-left: 4px solid
+        <%= it.msg_type === 'success' ? '#2ecc71' : '#e74c3c' %>;
+    ">
+    <strong>
+        <% if(it.msg_type === 'success') { %>
+        <i class="bi bi-check-circle"></i>
+        <% } else { %>
+        <i class="bi bi-bug"></i>
+        <% } %>
+    </strong>
+    <span><%= it.msg || "Internal server error" %></span>
+</article>
+<% } %>
+<section>
+    <div>
+        <hgroup style="text-align: center;">
+            <h1>Dashboard</h1>
+            <p>Manage your bundles and links</p>
+        </hgroup>
+        <form method="POST" action="/api/bundles/create">
+            <h2>Create new bundle</h2>
+            <fieldset class="grid">
+                <input name="title" placeholder="Bundle Title" aria-label="Title" required />
+                <input name="description" placeholder="Short description (Optional)" aria-label="Description" />
+                <input type="submit" value="Create" />
+            </fieldset>
+        </form>
+    </div>
+</section>
+<section>
+    <% if (it.bundles.length === 0) { %>
+    <article>No bundles created yet, use the form above to create your first link bundle.</article>
+    <% } else { %>
+    <div class="overflow-auto">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Slug</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Views</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% it.bundles.forEach((bundle, index) => { %>
+                <tr>
+                    <td><strong><%= index + 1 %></strong></td>
+                    <td>
+                        <a href="/b/<%= bundle.slug %>" target="_blank"><%= bundle.slug %></a>
+                    </td>
+                    <td><%= bundle.title %></td>
+                    <td><%= bundle.description || "-" %></td>
+                    <td><%= bundle.views %></td>
+                    <td><%= bundle.created_at %></td>
+                    <td>
+                        <div style="display: flex; gap: .5rem;">
+                            <a href="/dashboard/manage/<%= bundle.slug %>">
+                                <button type="button" class="contrast"><i class="bi bi-pencil-square"></i></button>
+                            </a>
+                            <a href="/b/<%= bundle.slug %>" target="_blank">
+                                <button type="button" class="contrast"><i class="bi bi-box-arrow-up-right"></i></button>
+                            </a>
+                            <button type="button" class="contrast copy-slug-btn" data-url="/b/<%= bundle.slug %>" title="Copy bundle URL"><i class="bi bi-clipboard"></i></button>
+                            <button type="button" class="contrast" disabled title="QR code generation coming soon"><i class="bi bi-qr-code-scan"></i></button>
+                        </div>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <% } %>
+</section>

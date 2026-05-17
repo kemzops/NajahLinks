@@ -1,0 +1,10 @@
+<% if (it.user) { %>
+<pre><%= "Logged in as: " + it.user.student_id + " | " + it.user.email %></pre>
+<% } %>
+<p>
+  <mark><strong>mvp-preview-v0.0.1</strong></mark>
+</p>
+<p>
+  <a href="https://azizjaber.me/" target="_blank" rel="noopener noreferrer" class="primary"><i class="bi bi-code-slash"></i> Aziz Jaber</a> | <a href="https://github.com/kemzops/NajahLinks/" target="_blank" rel="noopener noreferrer" class="contrast"><i class="bi bi-github"></i> GitHub Repo</a> | <a class="secondary" href="https://kemzops.mit-license.org/" target="_blank" rel="noopener noreferrer"><i class="bi bi-eye"></i> MIT License</a>
+</p>
+<p>This project is not affiliated with An-Najah National University</p>

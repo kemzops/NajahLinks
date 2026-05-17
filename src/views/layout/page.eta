@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Najah Links is a web-based open-source application that allows students of An-Najah National University to create & share pages where multiple URLs can be collected and displayed in one place.">
+    <meta name="keywords" content="university, links, bundles, sharing, najahlinks, url shortner, slugs, foss, open-source">
+    <meta property="og:title" content="NajahLinks">
+    <meta property="og:site_name" content="NajahLinks">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://azizjaber.me/">
+    <link rel="preload" href="/js/main.js" as="script" />
+    <script src="/js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/pico.blue.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <title><%= it.title || "NajahLinks" %></title>
+  </head>
+
+  <body>
+    <header class="container">
+      <%~ include("../partials/navbar") %>
+    </header>
+    <main class="container">
+      <%~ it.body %>
+    </main>
+    <footer class="container">
+      <%~ include("../partials/footer") %>
+    </footer>
+    <% if (it.user) { %>
+    <script src="/js/dashboard.js"></script>
+    <% } %>
+  </body>
+
+</html>

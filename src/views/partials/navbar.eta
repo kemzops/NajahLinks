@@ -1,0 +1,28 @@
+<nav>
+  <ul>
+    <li><strong>NajahLinks</strong></li>
+  </ul>
+  <ul>
+    <% if (it.user) { %>
+    <li>
+      <a href="/dashboard">
+        <button class="contrast">Dashboard</button>
+      </a>
+    </li>
+    <li>
+      <button id="logout-btn" class="contrast">Logout</button>
+    </li>
+    <% } else { %>
+    <li>
+      <a href="/auth">
+        <button class="contrast">Login</button>
+      </a>
+    </li>
+    <% } %>
+    <li>
+      <button id="theme-toggle" class="contrast">
+        <i id="theme-icon" class="bi bi-moon-stars-fill"></i>
+      </button>
+    </li>
+  </ul>
+</nav>

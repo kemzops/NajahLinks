@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <rect width="1200" height="360" fill="#ffffff"/>
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">Bundle links row (fixed markup preview)</text>
+  <rect x="40" y="90" width="1120" height="70" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
+  <rect x="40" y="160" width="1120" height="120" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+  <line x1="140" y1="90" x2="140" y2="280" stroke="#111827" stroke-width="2"/>
+  <line x1="860" y1="90" x2="860" y2="280" stroke="#111827" stroke-width="2"/>
+  <line x1="1040" y1="90" x2="1040" y2="280" stroke="#111827" stroke-width="2"/>
+  <text x="80" y="132" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">#</text>
+  <text x="460" y="132" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Title</text>
+  <text x="915" y="132" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">Added</text>
+  <text x="80" y="230" font-family="Arial, sans-serif" font-size="22" fill="#111827">1</text>
+  <text x="460" y="230" font-family="Arial, sans-serif" font-size="22" fill="#2563eb">Example Link</text>
+  <text x="885" y="230" font-family="Arial, sans-serif" font-size="22" fill="#111827">2026-05-17</text>
+</svg>
