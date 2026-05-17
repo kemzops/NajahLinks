@@ -1,0 +1,12 @@
+<% layout("layout/page") %>
+<section class="container" style="text-align: center; margin-top: 2rem;">
+  <h1>NajahLinks</h1>
+  <p>
+    <%= it.description || "Open-source application that allows students of An-Najah National University to create and share pages where multiple URLs can be collected in one place." %>
+  </p>
+  <div style="margin-top: 2rem;">
+    <video width="720" controls preload="metadata">
+      <source src="/media/demo.mp4" type="video/mp4" /> Your browser does not support the video tag.
+    </video>
+  </div>
+</section>

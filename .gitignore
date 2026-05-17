@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# MAILPIT FOR DEVELOPMENT => https://mailpit.axllent.org/docs/install/
+src/smtp/mailpit*

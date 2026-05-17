@@ -1,0 +1,55 @@
+<% layout("layout/page") %>
+<% if (it.msg) { %>
+<article style="
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-left: 4px solid
+        <%= it.msg_type === 'success' ? '#2ecc71' : '#e74c3c' %>;
+    ">
+    <strong>
+        <% if(it.msg_type === 'success') { %>
+        <i class="bi bi-check-circle"></i>
+        <% } else { %>
+        <i class="bi bi-bug"></i>
+        <% } %>
+    </strong>
+    <span><%= it.msg || "Internal server error" %></span>
+</article>
+<% } %>
+<div class="grid">
+    <div>
+        <article>
+            <header>
+                <h2>Login</h2>
+            </header>
+            <form method="POST" action="/api/auth/login">
+                <fieldset>
+                    <label> Student ID <input name="student_id" placeholder="12402057" required />
+                    </label>
+                    <label> Password <input type="password" name="password" placeholder="********" required />
+                    </label>
+                </fieldset>
+                <button type="submit">Login</button>
+            </form>
+        </article>
+    </div>
+    <div>
+        <article>
+            <header>
+                <h2>Create new account</h2>
+            </header>
+            <form method="POST" action="/api/auth/register">
+                <fieldset>
+                    <label> University Email <input name="email" placeholder="s12402057@stu.najah.edu" required />
+                    </label>
+                    <label> Password <input type="password" name="password" placeholder="********" required />
+                    </label>
+                </fieldset>
+                <button type="submit">Register</button>
+            </form>
+            <footer>
+                <small>Verification email will be sent.</small>
+            </footer>
+        </article>
+    </div>
+</div>

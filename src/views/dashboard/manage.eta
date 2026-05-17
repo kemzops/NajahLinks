@@ -1,0 +1,117 @@
+<% layout("../layout/page") %>
+<% if (it.msg) { %>
+<article style="
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid
+    <%= it.msg_type === 'success' ? '#2ecc71' : '#e74c3c' %>;
+">
+  <strong>
+    <% if(it.msg_type === 'success') { %>
+    <i class="bi bi-check-circle"></i>
+    <% } else { %>
+    <i class="bi bi-bug"></i>
+    <% } %>
+  </strong>
+  <span><%= it.msg || "Internal server error" %></span>
+</article>
+<% } %>
+<section>
+  <div style="text-align:center;">
+    <hgroup>
+      <h1>Manage Bundle</h1>
+      <p><%= it.bundle.title %></p>
+    </hgroup>
+    <p>
+      <a href="/b/<%= it.bundle.slug %>" target="_blank">
+        <code>/b/<%= it.bundle.slug %></code>
+      </a>
+    </p>
+  </div>
+</section>
+<section>
+  <article>
+    <header>
+      <h2>Edit Bundle Details</h2>
+    </header>
+    <form method="POST" action="/api/bundles/update/<%= it.bundle.slug %>">
+      <fieldset class="grid">
+        <input name="title" value="<%= it.bundle.title %>" placeholder="Bundle Title" required />
+        <input name="description" value="<%= it.bundle.description || '' %>" placeholder="Description (optional)" />
+        <input type="submit" value="Update" />
+      </fieldset>
+    </form>
+  </article>
+</section>
+<section>
+  <h2>Add Link</h2>
+  <form method="POST" action="/api/bundles/<%= it.bundle.slug %>/links/add">
+    <fieldset class="grid">
+      <input name="title" placeholder="Link title (optional)" />
+      <input name="url" placeholder="https://example.com" required />
+      <input type="submit" value="Add" />
+    </fieldset>
+  </form>
+</section>
+<section>
+  <% if (!it.links || it.links.length === 0) { %>
+  <article>No links added yet.</article>
+  <% } else { %>
+  <div class="overflow-auto">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>URL</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% it.links.forEach((link, index) => { %>
+        <tr>
+          <td><strong><%= index + 1 %></strong></td>
+          <td>
+            <form method="POST" action="/api/bundles/<%= it.bundle.slug %>/links/update/<%= link.id %>">
+              <input name="title" value="<%= link.title || '' %>" placeholder="Link Title" />
+          </td>
+          <td>
+            <input name="url" value="<%= link.url %>" required />
+          </td>
+          <td>
+            <small><%= link.created_at %></small>
+          </td>
+          <td>
+            <div style="display:flex; gap:.5rem; align-items:center;">
+              <button type="submit" class="contrast">
+                <i class="bi bi-check2"></i>
+              </button>
+              </form>
+              <form method="POST" action="/api/bundles/<%= it.bundle.slug %>/links/delete/<%= link.id %>">
+                <button type="submit" class="contrast">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+</section>
+<section>
+  <article style="border-left: 4px solid #e74c3c;">
+    <header>
+      <h2><i class="bi bi-exclamation-triangle"></i> Danger Zone</h2>
+    </header>
+    <form method="POST" action="/api/bundles/delete/<%= it.bundle.slug %>">
+      <button type="submit" class="contrast">Delete Bundle</button>
+    </form>
+    <footer>
+      <p>This will permanently delete the bundle and all its links</p>
+    </footer>
+  </article>
+</section>

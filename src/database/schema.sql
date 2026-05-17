@@ -1,0 +1,36 @@
+-- THIS TO BE EXECUTED INSIDE TURSO CLOUD 
+-- https://app.turso.tech/USER_NAME/databases/DB_NAME/data
+
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  student_id TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL,
+  verification_token TEXT DEFAULT NULL,
+  is_verified INTEGER DEFAULT 0,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS bundles (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT,
+  slug TEXT NOT NULL UNIQUE,
+  views INTEGER DEFAULT 0,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS links (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  bundle_id INTEGER NOT NULL,
+  title TEXT,
+  url TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (bundle_id) REFERENCES bundles(id) ON DELETE CASCADE
+);
+
+-- TURSO HANDLES IT?
+CREATE INDEX idx_bundles_user_id ON bundles(user_id);
+CREATE INDEX idx_links_bundle_id ON links(bundle_id);

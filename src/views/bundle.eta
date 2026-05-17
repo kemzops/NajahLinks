@@ -1,0 +1,45 @@
+<% layout("layout/page") %>
+<section>
+  <div style="text-align:center;">
+    <hgroup>
+      <h1><%= it.bundle.title %></h1>
+      <% if (it.bundle.description) { %>
+      <p><%= it.bundle.description %></p>
+      <% } %>
+    </hgroup>
+  </div>
+</section>
+<section>
+  <% if (!it.links || it.links.length === 0) { %>
+  <article>No links available in this bundle yet.</article>
+  <% } else { %>
+  <div class="overflow-auto">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% it.links.forEach((link, index) => { %>
+        <tr>
+          <td><strong><%= index + 1 %></strong></td>
+          <td>
+            <a href="<%= link.url %>" target="_blank" rel="noopener noreferrer"><%= link.title || link.url %></a>
+          <td>
+            <small><%= link.created_at %></small>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+</section>
+<section style="text-align: center;">
+  <code>
+    <small>Views: <%= it.bundle.views %> | Created: <%= it.bundle.created_at %></small>
+  </code>
+</section>
